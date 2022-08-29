@@ -1,4 +1,11 @@
-export function Header({searchMovies, setSearchKey}) {
+import React from "react"
+
+type Props = {
+  searchMovies:  React.FormEventHandler<HTMLFormElement>
+  setSearchKey: (val: string) => void
+}
+
+export function Header({searchMovies, setSearchKey}: Props) {
     return (
     <header className='header'>
         <h1>Trailer Movies Watch</h1>

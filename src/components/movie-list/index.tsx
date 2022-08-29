@@ -1,17 +1,20 @@
-import { MovieCard } from "../movie-card"
+import React from "react"
+import { Video, MovieCard } from "../movie-card"
 
-export function MovieList({movies, selectMovie, onLoadMore, isLoadMoreAvailable}) {
+type Props = {
+  movies: any[]
+  isLoadMoreAvailable: boolean
+  selectMovie: (movie: Video) => void
+  onLoadMore: () => void
+}
+
+export function MovieList({movies, selectMovie, onLoadMore, isLoadMoreAvailable}: Props) {
     const renderMovies = () => {
         return movies.map(movie => {
           return (
-            // <>
-            //   <h2>{movie.title}</h2>
-            //   <p>{movie.vote_average}</p>
-            // </>
             <MovieCard
               key={movie.id}
               movie={movie}
-              // selectMovie={setSelectedMovie}
               selectMovie={selectMovie}
             />
           )
